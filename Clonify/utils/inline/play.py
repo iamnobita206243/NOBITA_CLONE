@@ -230,7 +230,7 @@ def stream_markup2(_, chat_id):
                 text="˹ ❍ᴡηєʀ ˼", url=f"https://t.me/ll_NOBITA_DEFAULTERS_ll"
             ),
             InlineKeyboardButton(
-                text="˹ sυᴘᴘσʀᴛ ˼", url=f"https://t.me/+wPjAlUcObehiZDM1"
+                text="˹ sυᴘᴘσʀᴛ ˼", url=f"https://t.me/+DRlOUMim-SdjOWJl"
             ),
         ],
 
