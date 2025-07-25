@@ -1,4 +1,3 @@
-
 import asyncio
 import importlib
 
@@ -19,7 +18,9 @@ async def init():
     if not config.STRING1:
         LOGGER(__name__).error("String Session not filled, please provide a valid session.")
         exit()
+
     await sudo()
+
     try:
         users = await get_gbanned()
         for user_id in users:
@@ -27,33 +28,47 @@ async def init():
         users = await get_banned_users()
         for user_id in users:
             BANNED_USERS.add(user_id)
-    except:
-        pass
+    except Exception as e:
+        LOGGER(__name__).warning(f"Failed to load banned users: {e}")
+
+    # Start all clients
     await app.start()
-    for all_module in ALL_MODULES:
-        importlib.import_module("Clonify.plugins" + all_module)
-    LOGGER("Clonify.plugins").info("𝐀𝐥𝐥 𝐅𝐞𝐚𝐭𝐮𝐫𝐞𝐬 𝐋𝐨𝐚𝐝𝐞𝐝 𝐁𝐚𝐛𝐲🥳...")
     await userbot.start()
     await PRO.start()
+
+    # Load all plugins
+    for all_module in ALL_MODULES:
+        importlib.import_module("Clonify.plugins" + all_module)
+
+    LOGGER("Clonify.plugins").info("✅ All Features Loaded Successfully!")
+
+    # Start streaming
     try:
         await PRO.stream_call("https://te.legra.ph/file/29f784eb49d230ab62e9e.mp4")
     except NoActiveGroupCall:
         LOGGER("Clonify").error(
-            "𝗣𝗹𝗭 𝗦𝗧𝗔𝗥𝗧 𝗬𝗢𝗨𝗥 𝗟𝗢𝗚 𝗚𝗥𝗢𝗨𝗣 𝗩𝗢𝗜𝗖𝗘𝗖𝗛𝗔𝗧\𝗖𝗛𝗔𝗡𝗡𝗘𝗟\n\n𝗠𝗨𝗦𝗜𝗖 𝗕𝗢𝗧 𝗦𝗧𝗢𝗣........"
+            "❌ Please start a voice chat in your log group/channel before starting the bot."
         )
         exit()
-    except:
-        pass
+    except Exception as e:
+        LOGGER("Clonify").warning(f"Stream failed: {e}")
+
     await PRO.decorators()
     await restart_bots()
+
     LOGGER("Clonify").info(
-        "╔═════ஜ۩۞۩ஜ════╗\n  ☠︎︎𝗠𝗔𝗗𝗘 𝗕𝗬 𝗡𝗢𝗕𝗜𝗧𝗔☠︎︎\n╚═════ஜ۩۞۩ஜ════╝"
+        "╔═════ஜ۩۞۩ஜ════╗\n  ☠︎︎ MADE BY NOBITA ☠︎︎\n╚═════ஜ۩۞۩ஜ════╝"
     )
+
+    # Keep the bot running
     await idle()
+
+    # On stop, close everything cleanly
     await app.stop()
     await userbot.stop()
-    LOGGER("Clonify").info("𝗦𝗧𝗢𝗣 𝗠𝗨𝗦𝗜𝗖🎻 𝗕𝗢𝗧..")
+    await PRO.stop()
+    LOGGER("Clonify").info("🛑 Music Bot Stopped.")
 
 
 if __name__ == "__main__":
-    asyncio.get_event_loop().run_until_complete(init())
+    asyncio.run(init())
