@@ -10,8 +10,8 @@ start_txt = """
 **NOBITAXCLONE** - Tʜᴇ Uʟᴛɪᴍᴀᴛᴇ Tᴇʟᴇɢʀᴀᴍ Mᴜsɪᴄ Sᴏʟᴜᴛɪᴏɴ ᴡɪᴛʜ ᴄʟᴏɴᴇ ғᴇᴀᴛᴜʀᴇs.
 
 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━⧫
-┠ ◆ **sᴏᴜʀᴄᴇ ᴄᴏᴅᴇ:** [Click Here](https://t.me/NOBITA_MUSIC_SUPPORT)  
-┠ ◆ **ᴅᴇᴠᴇʟᴏᴘᴇʀ:** [𝐍ᴏʙɪᴛᴀꭙ 𝐍ᴇᴛᴡᴏʀᴋ](https://t.me/NOBITA_MUSIC_SUPPORT)
+┠ ◆ **sᴏᴜʀᴄᴇ ᴄᴏᴅᴇ:** [Click Here](https://t.me/NOB1TA_SUPPORT)  
+┠ ◆ **ᴅᴇᴠᴇʟᴏᴘᴇʀ:** [𝐍ᴏʙɪᴛᴀꭙ 𝐍ᴇᴛᴡᴏʀᴋ](https://t.me/NOB1TA_SUPPORT)
 ┠ ◆ **ʀᴇʟᴇᴀsᴇᴅ ʙʏ:** [𝚴 𝐎 𝐁 𝚰 𝐓 𝚲 ×͜×](https://t.me/ll_NOBITA_DEFAULTERS_ll)
 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━⧫
 
@@ -26,11 +26,11 @@ __Fᴏʀᴋ ɪᴛ, ᴄᴜsᴛᴏᴍɪᴢᴇ ɪᴛ, ᴀɴᴅ ᴍᴀᴋᴇ ɪᴛ �
 async def start(_, msg):
     buttons = [
         [
-                InlineKeyboardButton("𝗦𝗨𝗣𝗣𝗢𝗥𝗧", url="https://t.me/+wPjAlUcObehiZDM1"),
-                InlineKeyboardButton("𝗨𝗣𝗗𝗔𝗧𝗘", url="https://t.me/NOBITA_MUSIC_SUPPORT")
+                InlineKeyboardButton("𝗦𝗨𝗣𝗣𝗢𝗥𝗧", url="https://t.me/+DRlOUMim-SdjOWJl"),
+                InlineKeyboardButton("𝗨𝗣𝗗𝗔𝗧𝗘", url="https://t.me/NOB1TA_SUPPORT")
         ],
         [ 
-          InlineKeyboardButton("𝗦𝗢𝗨𝗥𝗖𝗘 𝗖𝗢𝗗𝗘", url=f"https://t.me/NOBITA_MUSIC_SUPPORT")
+          InlineKeyboardButton("𝗦𝗢𝗨𝗥𝗖𝗘 𝗖𝗢𝗗𝗘", url=f"https://t.me/NOB1TA_SUPPORT")
         ]
     ]
     
@@ -50,7 +50,7 @@ async def start(_, msg):
 @capture_err
 async def repo(_, message):
     async with httpx.AsyncClient() as client:
-        response = await client.get("https://t.me/NOBITA_MUSIC_SUPPORT")
+        response = await client.get("https://t.me/NOB1TA_SUPPORT")
     
     if response.status_code == 200:
         users = response.json()
@@ -60,7 +60,7 @@ async def repo(_, message):
             list_of_users += f"{count}. [{user['login']}]({user['html_url']})\n"
             count += 1
 
-        text = f"""[𝖱𝖤𝖯𝖮 𝖫𝖨𝖭𝖪](https://t.me/NOBITA_MUSIC_SUPPORT) | [𝖦𝖱𝖮𝖴𝖯](https://t.me/+wPjAlUcObehiZDM1)
+        text = f"""[𝖱𝖤𝖯𝖮 𝖫𝖨𝖭𝖪](https://t.me/NOB1TA_SUPPORT) | [𝖦𝖱𝖮𝖴𝖯](https://t.me/+DRlOUMim-SdjOWJl)
 | 𝖢𝖮𝖭𝖳𝖱𝖨𝖡𝖴𝖳𝖮𝖱𝖲 |
 ----------------
 {list_of_users}"""
