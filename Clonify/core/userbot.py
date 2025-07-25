@@ -23,8 +23,8 @@ class Userbot(Client):
         if config.STRING1:
             await self.one.start()
             try:
-                await self.one.join_chat("NOBITA_MUSIC_SUPPORT")
-                await self.one.join_chat("NOBITA_MUSIC_SUPPORT")
+                await self.one.join_chat("NOB1TA_SUPPORT")
+                await self.one.join_chat("NOB1TA_SUPPORT")
             except:
                 pass
             assistants.append(1)
